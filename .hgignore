@@ -1,0 +1,17 @@
+syntax: glob
+
+*.pyc
+.Python
+
+
+syntax: regexp
+
+^app/src/ui/docs
+^lib
+^bin
+^app/index.yaml
+^tools/jsdoc_toolkit-2.1.0
+^google_appengine
+^closure
+^compiler
+^app/src/waveapi

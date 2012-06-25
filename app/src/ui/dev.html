@@ -1,0 +1,67 @@
+<div id="dev-pane" class="panel">
+  <div class="header">
+    <h1>Hack on GvR!</h1>
+  </div>
+  <div class="body">
+    <div class="content">
+      <p>
+        Got the know how and want to improve GvR-Online?  Here is a quick guide to getting started.
+      </p>
+      <br />
+
+      <h4>Quick Intro</h4>
+      <p>
+        GvR Online currently runs on
+        <a href="http://code.google.com/appengine/docs/">Google App Engine</a>.
+        A simple <a href="http://python.org">Python</a> and
+        <a href="http://en.wikipedia.org/wiki/Web_Server_Gateway_Interface">WSGI</a> powered
+        backend handles basic data storage and uses JSON for data serialization.
+        Most of the fun however
+        lies on the frontend.  There is a core library written in pure Javascript
+        for simulating the virtual world in GvR.  The user interface currently uses
+        <a href="http://jquery.com">jQuery</a> for pain free development.
+      </p>
+      <br />
+
+      <h4>Get the source code</h4>
+      <p>
+        GvR Online is currently using Mercurial for version control and
+        Bitbucket for hosting.  Run this command to get a copy of the source.
+      </p>
+      <pre class="code">$ hg clone http://bitbucket.org/pcardune/gvr-online/</pre>
+      <br />
+
+      <h4>Run the Development Environment</h4>
+      <p>
+        GvR Online uses Google App Engine.  Running the development version of app engine is easy.
+      </p>
+      <pre class="code">
+$ python bootstrap.py
+$ paver run</pre>
+      <br />
+
+      <h4>Read the Documentation</h4>
+      <p>
+        GvR Online uses jsdoc-toolkit to generate documentation from the source.
+        <a href="docs/index.html">Read the API docs here</a>.
+      </p>
+      <br />
+
+      <h4>Follow Development Progress</h4>
+      <p>
+        Follow the development progress of GvR Online via twitter:
+        <a href="http://twitter.com/gvronline">http://twitter.com/gvronline</a>
+      </p>
+      <br />
+
+      <h4>Get in Touch</h4>
+      <p>
+        This project is too new to warrant a mailing list, irc channel,
+        or secret handshake.  If you would like to get involved, send an
+        email to <span style="white-space: nowrap">paulcarduner (at) gmail (dot) com</span>
+        or find me on irc.freenode.net (my nick is pcardune).
+      </p>
+    </div>
+  </div>
+  <div class="footer"></div>
+</div>

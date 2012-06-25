@@ -1,0 +1,375 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>GvR on JavaScript</title>
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.6.0/build/reset-fonts/reset-fonts.css" />
+    <link rel="stylesheet" type="text/css" href="reset-fonts.css" />
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+
+    <div id="doc">
+      <div id="logon">
+        <span class="_" i18n:id="welcome">Welcome</span> <span id="logon-nickname"></span>
+        <a id="logout-link" href="javascript: void(0)"
+           style="display: none" class="_" i18n:id="logout">Logout</a>
+        <a id="login-link" href="javascript: void(0)"
+           class="_" i18n:id="login">Login</a>
+        <select id="language-selector">
+          <option>Language</option>
+        </select>
+      </div>
+      <div id="header">
+        <div id="logo"><a href="/" class="_" i18n:id="gvr-online">GvR-Online!</a></div>
+      </div>
+      <div id="alert" style="display: none">Some Alert</div>
+      <div id="navigation">
+        <a id="navigation-home" href="#home" rel="history"
+           class="_" i18n:id="home">Home</a>
+        <a id="navigation-browse" href="#browse" rel="history"
+           class="_" i18n:id="browse">Browse</a>
+        <a id="navigation-program" href="#program" rel="history"
+           class="_" i18n:id="program">Program</a>
+        <a id="navigation-help" href="#help"
+           rel="history" class="_" i18n:id="help">Help</a>
+        <a id="navigation-dev" href="#dev" rel="history"
+           class="_" i18n:id="dev">Dev</a>
+      </div>
+      <div id="main">
+
+
+        <!-- ======= Program View ======== -->
+        <div id="program-view" class="view" style="display: none">
+          <div id="display" class="panel">
+            <div class="header">
+              <button id="execute-button" class="_" i18n:id="execute">Execute</button>
+              <button id="stop-button" class="_" i18n:id="stop">Stop</button>
+              <button id="step-button" class="_" i18n:id="step">Step</button>
+              <button id="reload-button" class="_" i18n:id="reload">Reload</button>
+              <span class="_" i18n:id="speed">Speed:</span>
+              <select id="speed">
+                <option value="200" class="_" i18n:id="slow">Slow</option>
+                <option value="50" class="_" i18n:id="medium">Medium</option>
+                <option value="5" class="_" i18n:id="fast">Fast</option>
+                <option value="-1" class="_" i18n:id="instant">Instant</option>
+              </select>
+            </div>
+            <div class="body">
+              <canvas id="canvas" height="500" width="500"></canvas>
+            </div>
+            <div class="footer">
+            </div>
+          </div>
+          <div id="editor" class="panel">
+            <div class="header">
+              <span class="tab selected _" id="program-editor-pane-tab"
+                    i18n:id="code-editor">Code Editor</span>
+              <span class="tab _" id="world-editor-pane-tab"
+                    i18n:id="world-editor">World Editor</span>
+              <span class="auxillary">
+                <input type="button" id="share-button" value="Share"/>
+              </span>
+            </div>
+
+            <div class="tab-content" id="program-editor-pane">
+              <div class="body">
+                <input style="display: none" class="file-title-editor" type="text" id="program-editor-title"/>
+                <textarea style="display: none" class="file-description-editor" id="program-editor-description"></textarea>
+                <textarea style="display: none" class="code-editor" id="program-editor"></textarea>
+                <div id="unopened-program-message"></div>
+              </div>
+              <div class="toolbar-bottom">
+                <button id="save-program" disabled="disabled"
+                        class="_" i18n:id="save">Save</button>
+              </div>
+            </div>
+
+            <div class="tab-content" id="world-editor-pane" style="display: none;">
+              <div class="body">
+                <input style="display: none" class="file-title-editor" type="text" id="world-editor-title"/>
+                <textarea style="display: none" class="file-description-editor" id="world-editor-description"></textarea>
+                <textarea style="display: none" class="code-editor" id="world-editor"></textarea>
+                <div id="unopened-world-message"></div>
+              </div>
+              <div class="toolbar-bottom">
+                <button id="save-world" disabled="disabled"
+                        class="_" i18n:id="save">Save</button>
+              </div>
+            </div>
+            <div class="footer">
+            </div>
+          </div>
+        </div>
+
+
+        <!-- ========== Browse View ========= -->
+        <div id="browse-view" class="view" style="display: none; clear: both;">
+          <div id="browse-pane" class="panel">
+            <div class="header">
+              <button id="show-my-files">Show my files</button>
+              <button id="show-all-files" style="display: none;">Show all files</button>
+              <div id="search-files">
+                Search: <input type="text"/>
+              </div>
+            </div>
+            <div class="body odd">
+              <div class="file-browser">
+                <div class="files">
+                  <div class="file">
+                    <div class="actions">
+                      <input type="button" value="Open"/>
+                      <input type="button" value="Delete"/>
+                    </div>
+                    <h1>Title</h1>
+                    <p>Description</p>
+                  </div>
+
+                  <div class="file even">
+                    <div class="actions">
+                      <input type="button" value="Open"/>
+                      <input type="button" value="Delete"/>
+                    </div>
+                    <h1>Title</h1>
+                    <p>Description</p>
+                  </div>
+
+                  <div class="file odd">
+                    <div class="actions">
+                      <input type="button" value="Open"/>
+                      <input type="button" value="Delete"/>
+                    </div>
+                    <h1>Title</h1>
+                    <p>Description</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="toolbar-bottom">
+              <input type="button" id="new-world" value="New World"/>
+              <input type="button" id="new-program" value="New Program"/>
+            </div>
+            <div class="footer">
+            </div>
+          </div>
+        </div>
+
+        <!-- Home View -->
+        <div id="home-view" class="view" style="display: none; clear: both;">
+          <div id="home-pane" class="panel">
+            <div class="header">
+              <h1 class="_" i18n:id="welcome-message">Welcome to GvR-Online!</h1>
+            </div>
+            <div class="body">
+              <div class="content">
+                <h4 class="_" i18n:id="gvr-description">
+                  GvR is an online tool to help teach beginning
+                  programming concepts.
+                </h4>
+                <p>
+                  <strong class="_" i18n:id="learn-about">Learn about:</strong>
+                </p>
+                <ul>
+                  <li class="_" i18n:id="looping">Looping</li>
+                  <li class="_" i18n:id="conditional-branching">Conditional Branching</li>
+                  <li class="_" i18n:id="procedural-abstraction">Procedural Abstraction</li>
+                </ul>
+                <br />
+                <div id="home-view-example">
+                  <h5 id="home-view-example-header"
+                      class="_" i18n:id="checkout-example">Check out a simple example:</h5>
+                  <div id="home-view-example-body">
+                    <canvas height="500" width="500" id="home-view-example-canvas"></canvas>
+                    <pre id="home-view-example-canvas-code">
+define turnright:
+    do 3:
+        turnleft
+
+define follow_right_wall:
+    if right_is_clear:
+        turnright
+        move
+    elif front_is_clear:
+        move
+    else:
+        turnleft
+
+while not_next_to_a_beeper:
+    follow_right_wall
+
+turnoff
+                    </pre>
+                    <button id="home-view-example-run-button"
+                            class="_" i18n:id="run">Run</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          <div class="footer"></div>
+          </div>
+        </div>
+
+        <div id="help-view" class="view" style="display: none;" gvr:url="help.html"></div>
+
+        <div id="dev-view" class="view" style="display: none;" gvr:url="dev.html"></div>
+
+      </div>
+
+
+    </div>
+
+
+    <div id="footer">
+      <a href="http://appengine.google.com" title="appengine">
+        <img src="http://appengine.google.com/favicon.ico" height="16px" width="16px" alt="appengine"/>
+      </a>
+      <a href="http://bitbucket.org/pcardune/gvr-online/" title="bitbucket">
+        <img src="http://media-cdn.bitbucket.org/img/logo_new.png" height="16px" width="16px" alt="bitbucket"/>
+      </a>
+      <a href="https://twitter.com/gvronline" title="twitter">
+        <img src="https://twitter.com/favicon.ico" alt="twitter"/>
+      </a>
+      <a href="http://www.carduner.net/" title="carduner.net">
+        <img src="http://carduner.net/favicon.ico" alt=""/>
+      </a>
+      <span class="_" i18n:id="created-by">Created by</span>
+      <a href="http://www.carduner.net/">
+        pcardune
+      </a>
+    </div>
+
+
+
+    <!-- ================ templates =============== -->
+    <div id="templates" style="display: none">
+      <div class="file-editor-pane">
+        <div class="file-metadata">
+          <input type="text" value="Title"/>
+          <textarea cols="10" rows="10">Description</textarea>
+        </div>
+        <div class="file-actions">
+          <input type="button" class="file-save-button" value="Save"/>
+        </div>
+        <div class="file-editor">
+          <textarea cols="10" rows="10"></textarea>
+        </div>
+      </div>
+
+      <span class="login-to-save-message">
+        <a href="javascript: void(0)"
+           class="_" i18n:id="log-in-to-save">Log in to save</a>
+      </span>
+
+      <span class="login-to-create-new-stuff-message">
+        <a href="javascript: void(0)"
+           class="_" i18n:id="log-in-to-create">Log in to create new stuff</a>
+      </span>
+
+      <div class="loading-message">
+        <span class="message"></span>
+      </div>
+
+
+      <div class="file-browser">
+        <div class="files">
+          <div class="file">
+            <div class="actions">
+              <input type="button" class="open" value="Open"/>
+              <input type="button" class="delete" value="Delete"/>
+            </div>
+            <div class="icon"></div>
+            <h1>Title</h1>
+            <p>Description</p>
+          </div>
+        </div>
+        <div class="actions">
+          <input type="button" value="Add" />
+        </div>
+      </div>
+
+
+      <div class="dialog">
+        <div class="modal-shade"></div>
+        <div class="window">
+        </div>
+        <div class="window-shadow"></div>
+      </div>
+
+
+      <form class="share-form" action=".">
+        <h1 class="_" i18n:id="share">Share</h1>
+        <div class="body step-1">
+          <p class="_" i18n:id="share-instructions">
+            Share this program and world with others.  Separate emails by a comma.
+          </p>
+          <fieldset>
+            <legend></legend>
+            <div class="row">
+              <label for="share-to" class="share-to-label _"
+                     i18n:id="share-to">To:</label>
+              <input type="text" name="share-to"/>
+            </div>
+            <div class="row">
+              <label for="share-message" class="share-message-label _"
+                     i18n:id="share-message-label">Message:</label>
+              <textarea name="share-message" cols="40" rows="5"></textarea>
+            </div>
+          </fieldset>
+          <fieldset class="buttons">
+            <legend></legend>
+            <input type="button" name="cancel" value="Cancel"/>
+            <input type="button" name="share" value="Share"/>
+          </fieldset>
+        </div>
+        <div class="body step-2" style="display: none;">
+          <p>
+            <a href="" class="example-link _" target="_blank"
+               i18n:id="see-your-example">Click here to see your example.</a>
+          </p>
+          <fieldset class="buttons">
+            <legend></legend>
+            <input type="button" name="cancel" value="Close"/>
+          </fieldset>
+        </div>
+      </form>
+
+
+    </div>
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js"
+            type="text/javascript"
+            language="Javascript"></script>
+    <script src="jquery.min.js" type="text/javascript"></script>
+    <script src="lib/jquery.history.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+      function script(path){
+        document.write(unescape("%3Cscript type='text/javascript' src='"+path+"'%3E%3C/script%3E"));
+      }
+      if (window.location.search.slice(1,11) === "debug=true"){
+        var CLOSURE_NO_DEPS = true;
+        var CLOSURE_BASE_PATH = "/ui/";
+        script("closure/goog/base.js");
+        script("deps.js");
+        script("launcher.js");
+      } else {
+        script("compiled.js");
+      }
+    </script>
+
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-1695778-8");
+        pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
+
+  </body>
+</html>

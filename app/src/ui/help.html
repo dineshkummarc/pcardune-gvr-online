@@ -1,0 +1,164 @@
+<div id="help-pane" class="panel">
+  <div class="header">
+    <h1>Help with GvR</h1>
+  </div>
+  <div class="body">
+    <div class="content" >
+      <h2>Language Reference</h2>
+      <h3>The Five Primitive Guido van Robot Instructions:</h3>
+      <pre>
+    move
+    turnleft
+    pickbeeper
+    putbeeper
+    turnoff
+      </pre>
+
+      <h3>Block Structuring</h3>
+      <p>
+        Each Guido van Robot instruction must be on a separate line.  A sequence of
+        one or more Guido van Robot instructions that are all indented the same
+        number of spaces compose a <strong>block</strong> of code. &nbsp;
+        <code>&lt;instruction&gt;</code> refers to any of the five primitive
+        instructions above, the conditional branching or iteration instructions below,
+        or a user defined instruction.
+      </p>
+      <pre class="code">
+    &lt;instruction&gt;
+    &lt;instruction&gt;
+      ...
+    &lt;instruction&gt;
+      </pre>
+
+
+      <h3>Conditional Branching</h3>
+      <p>
+        <strong>Conditional branching</strong> refers to the ability of a program to
+        alter it's <strong>flow of execution</strong> based on the result of the
+        evaluation of a <strong>conditional</strong>.  The three types of conditional
+        branching instructions in Guido van Robot are <code>if</code> and
+        <code>if/else</code> and <code>if/elif/else</code>.  &nbsp;
+        <code>&lt;test&gt;</code> refers to one of the eighteen conditionals below.
+      </p>
+
+      <pre class="code">
+    if &lt;test&gt;:
+        &lt;block&gt;
+
+      </pre>
+
+      <pre class="code">
+    if &lt;test&gt;:
+        &lt;block&gt;
+    else:
+        &lt;block&gt;
+
+      </pre>
+
+      <pre class="code">
+    if &lt;test&gt;:
+        &lt;block&gt;
+    elif &lt;test&gt;:
+        &lt;block&gt;
+    ...
+    elif &lt;test&gt;:
+        &lt;block&gt;
+    else:
+        &lt;block&gt;
+      </pre>
+
+
+      <h3>Conditionals</h3>
+      <p>
+        GvR has eighteen built-in tests that are divided into three groups: the
+        first six are wall tests, the next four are beeper tests, and the last
+        eight are compass tests:
+      </p>
+      <pre class="code">
+    front_is_clear
+    front_is_blocked
+    left_is_clear
+    left_is_blocked
+    right_is_clear
+    right_is_blocked
+
+    next_to_a_beeper
+    not_next_to_a_beeper
+    any_beepers_in_beeper_bag
+    no_beepers_in_beeper_bag
+
+    facing_north
+    not_facing_north
+    facing_south
+    not_facing_south
+    facing_east
+    not_facing_east
+    facing_west
+    not_facing_west
+      </pre>
+
+
+      <h3>Iteration</h3>
+      <p>
+        <strong>Iteration</strong> refers to the ability of a program to repeate an
+        instruction (or block of instructions) over and over until some condition is
+        met.  The two types of iteration instructions are the <code>do</code> and
+        <code>while</code> instructions. &nbsp;
+        <code>&lt;positive_number&gt;</code> must be an integer greater than 0.
+      </p>
+
+      <pre class="code">
+    do &lt;positive_number&gt;:
+        &lt;block&gt;
+
+      </pre>
+
+      <pre class="code">
+    while &lt;test&gt;:
+        &lt;block&gt;
+      </pre>
+
+
+      <h3>Defining a New Instruction:</h3>
+      <p>
+        New instructions can be created for Guido van Robot using the
+        <code>define</code> statement.  &nbsp; <code>&lt;new_name&gt;</code> can
+        be any sequence of letters or digits as long as it begins with a letter and is
+        not already used as an instruction. <strong>Letters</strong> for Guido van
+        Robot are A..Z, a..z, and the underscore (_) character.  Guido van Robot is
+        case sensitive, so TurnRight, turnright, and turnRight are all different names.
+      </p>
+      <pre class="code">
+    define &lt;new_name&gt;:
+        &lt;block&gt;
+      </pre>
+
+
+      <h3>Simplest GvR Program</h3>
+      <p>
+        Execution of a GvR program ends with the <code>turnoff</code> instruction.
+        Any program which reaches the end of its instruction sequence without
+        encountering <code>turnoff</code> is considered in error.  Thus the simplest
+        GvR program is:
+      </p>
+      <pre class="code">
+    turnoff
+      </pre>
+
+      <h2>More ways to learn GvR</h2>
+      <p>
+        The GvR language was originally defined by Jeff Elkner and
+        implemented as a Desktop application which is now very mature
+        and stable.  It runs on all major platforms including Windows,
+        Mac OS X and Linux.  You can find more information about the
+        desktop application on the GvR website
+        at <a href="http://gvr.sourceforge.net">http://gvr.sourceforge.net</a>.
+        There is also a series of 18 structured lessons for learning
+        GvR and programming concepts in general.  You can find the
+        lessons here:
+        <a href="http://gvr.sourceforge.net/lessons/rfrank/">http://gvr.sourceforge.net/lessons/rfrank/</a>.
+      </p>
+    </div>
+  </div>
+  <div class="footer"></div>
+</div>

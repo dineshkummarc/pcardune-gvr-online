@@ -1,0 +1,68 @@
+#doc{
+    width: 950px;
+    margin: auto;
+}
+#header{
+    font-size: 200%;
+}
+#footer{
+    clear: both;
+}
+
+#display{
+    float: left;
+    width: 550px;
+}
+#editor{
+    float: right;
+    width: 375px;
+}
+
+.panel .header{
+    background: #eee;
+    border: 1px solid #ccc;
+    height: 30px;
+    line-height: 30px;
+    padding: 3px;
+}
+.panel .body{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-width: 0px 1px;
+}
+.panel .footer{
+    height: 10px;
+    background: #eee;
+    border: 1px solid #ccc;
+    -moz-border-radius: 0px 0px 10px 10px;
+}
+
+.panel .header .tab{
+    padding: 5px 8px;
+    border: 1px solid #ccc;
+    border-bottom: 0px;
+    position: relative;
+    top: 5px;
+    cursor: pointer;
+}
+.panel .header .tab.selected{
+    background: white;
+}
+
+.panel .toolbar{
+    border: 1px solid #ccc;
+    border-bottom: 0;
+    padding: 5px;
+    background: #f9f9f9;
+}
+
+#editor .code-editor{
+    border: 1px solid #eee;
+    border-color: #ccc #eee #eee #ccc;
+    padding-left: 3px;
+    height: 450px;
+    width: 350px;
+    font-family: Courier New, Courier, monospace;
+}
+#canvas{
+}

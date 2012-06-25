@@ -1,0 +1,17 @@
+application: gvr-online
+version: 3
+runtime: python
+api_version: 1
+
+handlers:
+- url: /_wave/.*
+  script: wave.py
+
+- url: /api/.*
+  script: main.py
+
+- url: /ui
+  static_dir: src/ui
+
+- url: /
+  script: main.py

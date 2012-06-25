@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>GvR on JavaScript</title>
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.6.0/build/reset-fonts/reset-fonts.css" />
+    <link rel="stylesheet" href="pong.css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js"
+            type="text/javascript"
+            language="Javascript"></script>
+    <script src="lib/gvr.core.js" type="text/javascript" language="Javascript"></script>
+    <script src="lib/gvr.lang.js" type="text/javascript" language="Javascript"></script>
+    <script src="lib/gvr.lang.parser.js" type="text/javascript" language="Javascript"></script>
+    <script src="lib/gvr.world.js" type="text/javascript" language="Javascript"></script>
+    <script src="lib/gvr.world.parser.js" type="text/javascript" language="Javascript"></script>
+    <script src="lib/gvr.js" type="text/javascript" language="Javascript"></script>
+    <script src="lib/gvr.tests.js" type="text/javascript" language="Javascript"></script>
+    <link rel="stylesheet" href="style.css"/>
+  </head>
+  <body>
+
+    <div id="doc">
+      <div id="header">
+        GvR-js
+      </div>
+      <div id="main">
+        <div id="display" class="panel">
+          <div class="header">
+            Speed:
+            <select id="speed">
+              <option value="200">Slow</option>
+              <option value="50">Medium</option>
+              <option value="5">Fast</option>
+              <option value="-1">Instant</option>
+            </select>
+          </div>
+          <div class="body">
+            <canvas id="canvas" height="500" width="500"></canvas>
+          </div>
+          <div class="footer">
+          </div>
+        </div>
+        <div id="editor" class="panel">
+          <div class="header">
+            <span class="tab selected" id="program-editor-pane-tab">Code Editor</span>
+            <span class="tab" id="world-editor-pane-tab">World Editor</span>
+          </div>
+
+          <div class="tab-content" id="program-editor-pane">
+            <div class="body">
+              <textarea class="code-editor" id="program-editor"></textarea>
+            </div>
+            <div class="toolbar">
+              <input type="button" id="execute-button" value="Execute" />
+              <input type="button" id="step-button" value="Step" />
+           </div>
+          </div>
+
+          <div class="tab-content" id="world-editor-pane" style="display: none;">
+            <div class="body">
+              <textarea class="code-editor" id="world-editor"></textarea>
+            </div>
+            <div class="toolbar">
+              <input type="button" id="reload-button" value="Reload" />
+            </div>
+          </div>
+
+          <div class="footer">
+          </div>
+        </div>
+      </div>
+      <div id="footer">
+        Created by Paul Carduner
+      </div>
+    </div>
+    <script src="lib/launcher.js" type="text/javascript"></script>
+  </body>
+</html>
